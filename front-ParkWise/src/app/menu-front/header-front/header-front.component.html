@@ -1,0 +1,113 @@
+<div class="main-header header-shadow cherry-header">
+
+  <div class="container">
+
+    <div class="main-header-container">
+
+      <div class="logo" data-mobile-logo="assets/img/images/logo/logo-dark.png"
+        data-sticky-logo="assets/img/images/logo/logo-dark.png">
+        <a href="front/parking"><img src="assets/img/images/logo/logo-dark.png" alt="logo" /></a>
+      </div> <!-- /LOGO -->
+
+      <div class="burger-menu">
+        <div class="line-menu line-half first-line"></div>
+        <div class="line-menu"></div>
+        <div class="line-menu line-half last-line"></div>
+      </div> <!-- /BURGER MENU -->
+
+      <nav class="main-menu menu-caret menu-hover-2 submenu-top-border submenu-scale">
+        <ul>
+          <li class="current-menu"><a href="index.html">Home</a></li>
+          <li><a href="parkings.html">Parkings</a>
+            <ul>
+              <li><a href="/front/parking">check your ParkWise</a></li>
+              <li><a href="booking.html">Booking</a></li>
+              <li><a href="booking-confirm.html">Booking Confirm</a></li>
+            </ul>
+          </li>
+          <li><a href="how-it-works.html">How it Works</a></li>
+          <li><a href="about-us.html">About Us</a>
+            <ul>
+              <li><a href="meet-and-greet.html">Meet & Greet</a></li>
+              <li><a href="testimonials.html">Testimonials</a></li>
+            </ul>
+          </li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="faqs.html">FAQs</a></li>
+          <li *ngIf="(authService.loggedIn | async)"><a href="front/parking">Contact Us</a>
+
+            <ul>
+              <li *ngIf="(authService.loggedIn | async)"><a href="front/claim">Sent Your Claim</a></li>
+              <li *ngIf="(authService.loggedIn | async)"><a href="front/userClaims">Check Your Claims</a></li>
+            </ul>
+          </li>
+          <li *ngIf="!(authService.loggedIn | async)"><a href="signup">Login</a></li>
+          <li *ngIf="!(authService.loggedIn | async)"><a href="signup">Sign Up</a></li>
+          <li *ngIf="(authService.loggedIn | async)" class="nav-item navbar-dropdown dropdown-user dropdown">
+            <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
+              <div class="d-flex align-items-center"> <!-- Ajout d'un conteneur flex -->
+                <div class="avatar avatar-online">
+                  <img [src]="getImageUrl(currentUser.image)" alt class="w-px-40 h-auto rounded-circle" />
+                </div>
+                <div class="online-status"></div> <!-- Déplacer l'icône de statut "en ligne" ici -->
+              </div>
+            </a>
+
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li>
+                <a class="dropdown-item" href="/front/parking">
+                  <div class="d-flex">
+
+
+                    <div class="flex-shrink-0 me-3">
+                      <img [src]="getImageUrl(currentUser.image)" alt class="w-px-30 h-auto rounded-circle" />
+
+
+                    </div>
+                    <div class="flex-grow-1">
+                      <span class="fw-semibold d-block">{{ currentUser.firstname }}</span>
+                      <span class="fw-semibold d-block">{{ currentUser.lastname }}</span>
+
+                      <small class="text-muted">{{ currentUser.role }}</small>
+                    </div>
+
+                  </div>
+                </a>
+              </li>
+              <li>
+                <div class="dropdown-divider"></div>
+              </li>
+              <li>
+                <a class="dropdown-item" [routerLink]="['/front/profile']">
+                  <i class="bx bx-user me-2"></i>
+                  <span class="align-middle">My Profile</span>
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="/reset">
+                  <i class="bx bx-cog me-2"></i>
+                  <span class="align-middle">Settings</span>
+                </a>
+              </li>
+              <li>
+
+              </li>
+              <li>
+                <div class="dropdown-divider"></div>
+              </li>
+              <li>
+                <a class="dropdown-item" href="front/parking" (click)="authService.logout()">
+                  <i class="bx bx-power-off me-2"></i>
+                  <span class="align-middle">Log Out</span>
+                </a>
+              </li>
+
+            </ul>
+          </li>
+        </ul>
+      </nav> <!-- NAVIGATION MENU -->
+
+    </div> <!-- /HEADER CONTAINER -->
+
+  </div> <!-- /CONTAINER -->
+</div> <!-- /HEADER -->

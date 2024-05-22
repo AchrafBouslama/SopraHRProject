@@ -1,0 +1,59 @@
+<div class="row myrow">
+    <form [formGroup]="parkingForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="nom">Nom:</label>
+            <input type="text" id="nom" name="nom" formControlName="nom" class="form-control">
+            <div class="alert alert-danger" *ngIf="parkingForm.get('nom')?.touched && parkingForm.get('nom')?.errors?.['required']">
+                Nom is required!
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="adresse">Adresse:</label>
+            <input type="text" id="adresse" name="adresse" formControlName="adresse" class="form-control">
+            <div class="alert alert-danger" *ngIf="parkingForm.get('adresse')?.touched && parkingForm.get('adresse')?.errors?.['required']">
+                Adresse is required!
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="capaciteTotale">Capacité Totale:</label>
+            <input type="number" id="capaciteTotale" name="capaciteTotale" formControlName="capaciteTotale" class="form-control">
+            <div class="alert alert-danger" *ngIf="parkingForm.get('capaciteTotale')?.touched && parkingForm.get('capaciteTotale')?.errors?.['required']">
+                Capacité Totale is required!
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" formControlName="description" class="form-control"></textarea>
+            <div class="alert alert-danger" *ngIf="parkingForm.get('description')?.touched && parkingForm.get('description')?.errors?.['required']">
+                Description is required!
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="latitude">Latitude:</label>
+            <input type="number" id="latitude" name="latitude" formControlName="latitude" class="form-control">
+            <div class="alert alert-danger" *ngIf="parkingForm.get('latitude')?.touched && parkingForm.get('latitude')?.errors?.['required']">
+                Latitude is required!
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="longitude">Longitude:</label>
+            <input type="number" id="longitude" name="longitude" formControlName="longitude" class="form-control">
+            <div class="alert alert-danger" *ngIf="parkingForm.get('longitude')?.touched && parkingForm.get('longitude')?.errors?.['required']">
+                Longitude is required!
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="image">Image</label>
+            <input type="file" id="image" (change)="onFileSelected($event)" class="form-control">
+            <div *ngIf="uploadProgress">
+                <div>Uploading... {{ uploadProgress }}%</div>
+                <progress [value]="uploadProgress" max="100"></progress>
+            </div>
+            <img *ngIf="imagePreview" [src]="imagePreview" class="thumbnail-preview">
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary mybutton" [disabled]="parkingForm.invalid">Save</button>
+        </div>
+    </form>
+</div>

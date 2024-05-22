@@ -1,0 +1,5 @@
+
+.no-bullets {
+    list-style-type: none; /* This removes the bullet points */
+    padding-left: 0;      /* This removes the default padding */
+  }

@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>PARKWISEHR</title>
+
+
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+
+  <link rel="icon" type="image/x-icon" href="assets/img/favicon/favicon.ico" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icons. Uncomment required icon fonts -->
+    <link rel="stylesheet" href="assets/vendor/fonts/boxicons.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="assets/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="assets/css/demo.css" />
+
+
+    <link rel="stylesheet" href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="assets/vendor/css/pages/page-auth.css" />
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
+
+  <link rel="shortcut icon" href="assets/images/logo/favicon.png">
+	<link rel="apple-touch-icon" href="assets/images/logo/apple-touch-icon.png">
+
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+
+	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+	<link rel="stylesheet" href="assets/vendors/menu/src/main.menu.css">
+
+	<link rel="stylesheet" type="text/css" href="assets/css/style2.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/utilities.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/colors.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/colors-gh.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/colors-g.css">
+
+	<!-- CAROUSEL -->
+	<link rel="stylesheet" href="assets/vendors/owl.carousel/owl.carousel.min.css">
+	<link rel="stylesheet" href="assets/vendors/owl.carousel/owl.theme.default.min.css">
+
+	<!-- ANIMATE -->
+	<link rel="stylesheet" type="text/css" href="assets/vendors/animate/animate.css">
+
+	<!-- ANIMATED HEADLINES -->
+	<link rel="stylesheet" type="text/css" href="assets/vendors/animated-headline/css/style.css">
+
+	<!-- FANCY BOX -->
+	<link rel="stylesheet" type="text/css" href="assets/vendors/fancybox/jquery.fancybox.min.css">
+
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600&display=swap" rel="stylesheet">
+</head>
+<body class="mat-typography">
+  <app-root></app-root>
+  <script src="assets/vendor/js/helpers.js"></script>
+  <script src="assets/js/config.js"></script>
+
+  <script src="assets/vendor/libs/jquery/jquery.js"></script>
+  <script src="assets/vendor/libs/popper/popper.js"></script>
+  <script src="assets/vendor/js/bootstrap.js"></script>
+  <script src="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+  <script src="assets/vendor/js/menu.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  
+<script src="assets/js/jquery-3.3.1.min.js"></script>
+<script src="assets/vendors/appear/jquery.appear.min.js"></script>
+<script src="assets/vendors/jquery.easing/jquery.easing.min.js"></script>
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/vendors/common/common.min.js"></script>
+
+<!-- FANCY-BOX -->
+<script src="assets/vendors/fancybox/jquery.fancybox.min.js"></script>
+
+<!-- MENU -->
+<script src="assets/vendors/menu/src/main.menu.js"></script>
+
+<!-- CAROUSEL -->
+<script src="assets/vendors/owl.carousel/owl.carousel.min.js"></script>
+
+<!-- ANIMATED-HEADLINES -->
+<script src="assets/vendors/animated-headline/js/animated-headline.js"></script>
+
+<!-- THEME-CUSTOM -->
+<script src="assets/js/main.js"></script>
+
+<!-- THEME-INITIALIZATION-FILES -->
+<script src="assets/js/theme.init.js"></script>
+<script src="assets/js/custom.js"></script>
+
+
+  <script>
+    //according to loftblog tut
+    $('.nav li:first').addClass('active');
+
+    var showSection = function showSection(section, isAnimate) {
+      var
+      direction = section.replace(/#/, ''),
+      reqSection = $('.section').filter('[data-section="' + direction + '"]'),
+      reqSectionPos = reqSection.offset().top - 0;
+
+      if (isAnimate) {
+        $('body, html').animate({
+          scrollTop: reqSectionPos },
+        800);
+      } else {
+        $('body, html').scrollTop(reqSectionPos);
+      }
+
+    };
+
+    var checkSection = function checkSection() {
+      $('.section').each(function () {
+        var
+        $this = $(this),
+        topEdge = $this.offset().top - 80,
+        bottomEdge = topEdge + $this.height(),
+        wScroll = $(window).scrollTop();
+        if (topEdge < wScroll && bottomEdge > wScroll) {
+          var
+          currentId = $this.data('section'),
+          reqLink = $('a').filter('[href*=\\#' + currentId + ']');
+          reqLink.closest('li').addClass('active').
+          siblings().removeClass('active');
+        }
+      });
+    };
+
+    $('.main-menu, .responsive-menu, .scroll-to-section').on('click', 'a', function (e) {
+      e.preventDefault();
+      showSection($(this).attr('href'), true);
+    });
+
+    $(window).scroll(function () {
+      checkSection();
+    });
+</script>
+  <!-- Template Javascript -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+</html>

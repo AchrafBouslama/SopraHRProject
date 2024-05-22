@@ -1,0 +1,52 @@
+<div class="row myrow">
+    <form #userForm="ngForm" (ngSubmit)="addOrEditeUser(user)">
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" [(ngModel)]="user.email" class="form-control" required email
+                #inputEmail="ngModel">
+            <div class="alert alert-danger" *ngIf="inputEmail.touched && inputEmail.invalid">
+                <div *ngIf="inputEmail?.errors?.['required']">Email is required!</div>
+                <div *ngIf="inputEmail.errors?.['email']">Please enter a valid email address.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="role">Role:</label>
+            <select class="form-control" name="role" [(ngModel)]="user.role">
+                <option class="option" *ngFor="let role of roles" [value]="role">{{role}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="firstname">Firstname:</label>
+            <input type="text" id="firstname" name="firstname" [(ngModel)]="user.firstname" class="form-control"
+                required minlength="3" #thisfirstname="ngModel">
+            <div class="alert alert-danger" *ngIf="thisfirstname.touched && thisfirstname.invalid">
+                <div *ngIf="thisfirstname.errors?.['required']">Firstname is required!</div>
+                <div *ngIf="thisfirstname.errors?.['minlength']">Firstname must have at least 3 characters.</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="lastname">Lastname:</label>
+            <input type="text" id="lastname" name="lastname" [(ngModel)]="user.lastname" class="form-control" required
+                minlength="3" #thislastname="ngModel">
+            <div class="alert alert-danger" *ngIf="thislastname.touched && thislastname.invalid">
+                <div *ngIf="thislastname.errors?.['required']">Lastname is required!</div>
+                <div *ngIf="thislastname.errors?.['minlength']">Lastname must have at least 3 characters.</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" [(ngModel)]="user.password" class="form-control"
+                required minlength="6" #thispassword="ngModel">
+            <div class="alert alert-danger" *ngIf="thispassword.touched && thispassword.invalid">
+                <div *ngIf="thispassword.errors?.['required']">Password is required!</div>
+                <div *ngIf="thispassword.errors?.['minlength']">Password must have at least 6 characters.</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary mybutton" [disabled]="userForm.invalid">Save</button>
+        </div>
+    </form>
+</div>

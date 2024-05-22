@@ -1,0 +1,241 @@
+<section class="pt-s5 pb-s5 overlay-wrap" data-plugin-parallax data-plugin-options="{'speed': 1.5}" data-image-src="assets/img/images/bg/bg-1.jpg">
+  <div class="container overlay-container pt-s2 pb-s5">
+    <div class="pb-s5">
+      <div class="hero-section-container-tl w-100 h-100 d-flex justify-content-center align-items-center">
+        <div class="text-center mb-s2">
+          <div class="mt-s3 text-white">
+            <h6 class="animated-text">Find The Smartest parking Ever</h6>
+          </div>
+          <div class="mt-s1 mb-s5 text-white">
+            <h1 class="letters type mb-s2 text-white text-size-20--xs text-size-30--sm">
+              <span class="headline-wrapper text-cherry text-capitalize" id="headlineWrapper">
+                <b class="is-visible">PARKWISE HR</b>
+                <b class="is-visible">BEST PRACTICE</b>
+                <b class="is-visible">Secure RESERVATION Process</b>
+                <b class="is-visible">SEARCHING THE CONFORT OF OUR EMPLOYEES</b>
+              </span>
+            </h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> <!-- /CONTAINER -->
+  <div class="overlay bg-v9-dark"></div>
+</section> <!-- /SECTION -->
+
+<h2 class="title"><span>Check your ParkWise for Reservation</span></h2>
+<div class="parking-container">
+  <div *ngFor="let parking of parkings; let i = index" class="parking-item">
+    <div class="parking-content">
+      <div class="parking-image">
+        <img [src]="getImageUrl(parking.image)" width="150px" height="150px">
+      </div>
+      <div class="parking-details">
+        <h3>{{ parking.nom }}</h3>
+        <p>Adresse: {{ parking.adresse }}</p>
+        <p>description: {{ parking.description }}</p>
+        <p>Capacite: {{ parking.capaciteTotale }}</p>
+        <p (click)="copy($event,parking.latitude, parking.longitude)">
+          Latitude: {{ parking.latitude }}, Longitude: {{ parking.longitude }}
+          <span class="copy-indicator" *ngIf="clickedParkingIndex === i">(Copied)</span>
+          <span class="copy-indicator" *ngIf="clickedParkingIndex !== i">(Copy)</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+  <div
+  style="width: 40vw; 
+  height: 50vh;
+  margin-left: 800px; 
+  position: relative; 
+  top: -200px; 
+"
+      leaflet
+    [leafletOptions]="options"
+    [leafletLayers]="markers"
+    (leafletMapReady)="onMapReady($event)"
+    >
+
+    </div>
+   <section class="bg-dark-g pt-s5 pb-s5">
+      <div class="container">
+        <div class="mb-80 text-center">
+          <h6 class="text-bold-700 text-cherry">Parking Reservation</h6>
+          <h2 class="text-bold-700 text-white">Parking Reservation in 3 Simple Steps</h2>
+          <div class="mb-s3">
+            <hr class="mb-0 bc-v1-dark">
+            <hr class="w--60 bs-solid bc-cherry bw-s5 bt-0 bl-0 br-0 mt-0">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4 col-md-12 col-sm-12">
+            <div class="mt-s2 mb-s2 mb-60--md mb-60--sm mb-60--xs box-shadow-parent--hover mt--parent--hover">
+              <div class="bg-white text-center pt-s4 bs-solid bc-light bw-s1 position-relative">
+                <div class="hero-section-container-tl w-100 mt--s4 mt--s5-child">
+                  <img class="w--100 rounded-circle bs-solid bc-white bw-s5 box-shadow-v2-s3-child--hover" src="assets/img/images/steps/step-1.png" alt="Departure & Arrival Details">
+                </div>
+                <div class="p-s2 mt-s2 mb-s2">
+                  <span class="text-cherry text-bold-600">Step 1</span>
+                  <h5 class="mt-s1 mb-0 text-bold-600">Check your parking</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-12 col-sm-12">
+            <div class="mt-s2 mb-s2 mb-60--md mb-60--sm mb-60--xs box-shadow-parent--hover mt--parent--hover">
+              <div class="bg-white text-center pt-s4 bs-solid bc-light bw-s1 position-relative">
+                <div class="hero-section-container-tl w-100 mt--s4 mt--s5-child">
+                  <img class="w--100 rounded-circle bs-solid bc-white bw-s5 box-shadow-v2-s3-child--hover" src="assets/img/images/steps/step-2.png" alt="Your & Vehicle Detail">
+                </div>
+                <div class="p-s2 mt-s2 mb-s2">
+                  <span class="text-cherry text-bold-600">Step 2</span>
+                  <h5 class="mt-s1 mb-0 text-bold-600">Choose the etage and then the bloc you want to open</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-12 col-sm-12">
+            <div class="mt-s2 mb-s2 mb-60--md mb-60--sm mb-60--xs box-shadow-parent--hover mt--parent--hover">
+              <div class="bg-white text-center pt-s4 bs-solid bc-light bw-s1 position-relative">
+                <div class="hero-section-container-tl w-100 mt--s4 mt--s5-child">
+                  <img class="w--100 rounded-circle bs-solid bc-white bw-s5 box-shadow-v2-s3-child--hover" src="assets/img/images/steps/step-3.png" alt="Payment Detail">
+                </div>
+                <div class="p-s2 mt-s2 mb-s2">
+                  <span class="text-cherry text-bold-600">Step 3</span>
+                  <h5 class="mt-s1 mb-0 text-bold-600">Place-Parking Reservation Details</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> <!-- /ROW -->
+      </div> <!-- /CONTAINER -->
+    </section> <!-- /SECTION -->   
+    <section class="bg-white pt-s5 pb-s5">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-md-12 col-sm-12">
+            <div class="row">
+              <div class="col-md-12">
+                <div>
+                  <h4 class="text-bold-700">Testimonials</h4>
+                  <hr class="mt-0 mb-s1 bc-v1-dark">
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="owl-carousel owl-theme owl-nav-bg show-nav-title" data-plugin-options="{'responsive': {'0': {'items': 1}, '479': {'items': 1}, '768': {'items': 1}, '979': {'items': 1}, '1199': {'items': 1}}, 'margin': 10, 'loop': false, 'nav': true, 'dots': false}">
+                      <div>
+                        <div class="mt-s2 mb-s2 box-shadow-parent--hover">
+                          <div>
+                            <p class="mb-s1 text-size-s2 font-italic">Morbi sodales lacinia magna eget ornare. Vivamus ac posuere neque. Phasellus porta eu nisi eget accumsan.</p>
+                          </div>
+                          <div class="d-flex mt-s2 ml-20">
+                            <div class="rounded-circle h--45 w--45 mr-s2 d-flex justify-content-center align-items-center box-shadow-v2-s3-child--hover">
+                              <img class="w-100 rounded-circle bs-solid bc-light bw-s3" src="assets/img/images/testimonials/user-1.jpg" alt="Testimonials">
+                            </div>
+                            <div>									
+                              <span class="text-bold-600 text-dark d-block">John Doe</span>
+                              <span class="text-size-s1 text-muted">Google Inc.</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div>
+                        <div class="mt-s2 mb-s2 box-shadow-parent--hover">
+                          <div>
+                            <p class="mb-s1 text-size-s2 font-italic">Morbi sodales lacinia magna eget ornare. Vivamus ac posuere neque. Phasellus porta eu nisi eget accumsan.</p>
+                          </div>
+                          <div class="d-flex mt-s2 ml-20">
+                            <div class="rounded-circle h--45 w--45 mr-s2 d-flex justify-content-center align-items-center box-shadow-v2-s3-child--hover">
+                              <img class="w-100 rounded-circle bs-solid bc-light bw-s3" src="assets/img/images/testimonials/user-2.jpg" alt="Testimonials">
+                            </div>
+                            <div>									
+                              <span class="text-bold-600 text-dark d-block">Steve Jobs</span>
+                              <span class="text-size-s1 text-muted">Supper Inc.</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div> <!-- /ROW -->
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-12 col-sm-12">
+            <div class="mb-s2 mt-s3--md mt-s3--sm mt-s3--xs">
+              <h4 class="text-bold-700">Type of Parking</h4>
+              <hr class="mt-0 mb-s1 bc-v1-dark">
+            </div>
+            <div class="accordion" id="accordion-acc7">
+              <div class="card border-none bg-none">
+                <div id="headingOne-acc7-1">
+                  <h5 class="mb-s1">
+                    <button class="btn btn-link btn-block text-size-s1 text-bold-600 text-dark rounded-0 text-left bg-v5-light bg-cherry--active text-white--active text-cherry--hover active collapsed pt-s1 pl-s2 pr-s2 pb-s1" type="button" data-toggle="collapse" data-target="#collapseOne-acc7-1" aria-expanded="true" aria-controls="collapseOne-acc7-1">
+                      <span class="mr-s1">
+                        <span>
+                          <i class="fa fa-plus hide"></i>
+                          <i class="fa fa-minus show"></i>
+                        </span>
+                      </span>
+                      Greet and Security
+                    </button>
+                  </h5>
+                </div>
+  
+                <div id="collapseOne-acc7-1" class="collapse show" aria-labelledby="headingOne-acc7-1" data-parent="#accordion-acc7">
+                  <div class="card-body pt-s2 pb-s2">
+                    <p>No parking stress, no hassle! Leave and pick your car in the ParkWise.
+                       We will allow you with security so you can  safely park your car. 
+                      </p>
+                  </div>
+                </div>
+              </div>
+              <div class="card border-none bg-none">
+                <div id="headingTwo-acc7-2">
+                  <h5 class="mb-s1">
+                    <button class="btn btn-link btn-block text-size-s1 text-bold-600 text-dark rounded-0 text-left bg-v5-light bg-cherry--active text-white--active text-cherry--hover collapsed pt-s1 pl-s2 pr-s2 pb-s1" type="button" data-toggle="collapse" data-target="#collapseTwo-acc7-2" aria-expanded="false" aria-controls="collapseTwo-acc7-2">
+                      <span class="mr-s1">
+                        <span>
+                          <i class="fa fa-plus hide"></i>
+                          <i class="fa fa-minus show"></i>
+                        </span>
+                      </span>
+                      Real-Time Availability Display               </button>
+                  </h5>
+                </div>
+                <div id="collapseTwo-acc7-2" class="collapse" aria-labelledby="headingTwo-acc7-2" data-parent="#accordion-acc7">
+                  <div class="card-body pt-s2 pb-s2">
+                    <p> Display parking availability in real-time on the homepage or a dedicated page. 
+                        This will enable users to quickly see if there are available places at the times and locations of interest, 
+                      enhancing their user experience and reducing time spent searching for a place for parking</p>
+                  </div>
+                </div>
+              </div>
+              <div class="card border-none bg-none">
+                <div id="headingThree-acc7-3">
+                  <h5 class="mb-s1">
+                    <button class="btn btn-link btn-block text-size-s1 text-bold-600 text-dark rounded-0 text-left bg-v5-light bg-cherry--active text-white--active text-cherry--hover collapsed pt-s1 pl-s2 pr-s2 pb-s1" type="button" data-toggle="collapse" data-target="#collapseThree-acc7-3" aria-expanded="false" aria-controls="collapseThree-acc7-3">
+                      <span class="mr-s1">
+                        <span>
+                          <i class="fa fa-plus hide"></i>
+                          <i class="fa fa-minus show"></i>
+                        </span>
+                      </span>
+                      Integration of Online Booking System          
+                              </button>
+                  </h5>
+                </div>
+                <div id="collapseThree-acc7-3" class="collapse" aria-labelledby="headingThree-acc7-3" data-parent="#accordion-acc7">
+                  <div class="card-body pt-s2 pb-s2">
+                    <p>Allow users to conveniently and efficiently reserve their parking place online. 
+                      Ensure that the booking process is simple and intuitive </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> 
+      </div>
+      </section> 
+  

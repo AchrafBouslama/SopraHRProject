@@ -1,0 +1,38 @@
+<div class="col-12">
+    <div class=" rounded h-100 p-4">
+        <h2 class="mb-4">List Sopra Claims</h2>
+        <div class="content-wrapper">
+            <div class="container-xxl flex-grow-1 container-p-y">
+
+<div class="table-responsive">
+                    <table class="table table-responsive">
+                        <thead>
+                            <tr>
+                                <th scope="col">id</th>
+                                <th scope="col">employé</th>
+                                <th scope="col">subject</th>
+                                <th scope="col">description</th>
+                                <th scope="col">createdAt</th>
+                                <th scope="col">status</th>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-border-bottom-0">
+                            <tr>
+                            <tr *ngFor="let claim of claims">
+                                <td>{{ claim.id }}</td>
+                                <td>{{ claim.user.email }}</td>
+                                <td>{{ claim.subject }}</td>
+                                <td>{{ claim.description }}</td>
+                                <td>{{ claim.createdAt[0] }}/{{claim.createdAt[1]}}/{{claim.createdAt[2] }}</td>                                <td>
+                                <td>{{ claim.status }}</td>
+                               <td>
+  <button class="btn btn-primary" (click)="redirectToResponseForm(claim.id)">Répondre</button>
+</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+            </div>

@@ -1,0 +1,33 @@
+<div class="row myrow">
+    <form #etageForm="ngForm" (ngSubmit)="addOrEditeEtage(etage)">
+        <div class="form-group">
+            <label for="numeroEtage">Numéro d'étage:</label>
+            <input type="number" id="numeroEtage" name="numeroEtage" [(ngModel)]="etage.numeroEtage" class="form-control" required>
+            <div class="alert alert-danger" *ngIf="etageForm.controls['numeroEtage'].touched && etageForm.controls['numeroEtage'].invalid">
+                <div *ngIf="etageForm.controls['numeroEtage'].errors?.['required']">Numéro d'étage requis!</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="capaciteEtage">Capacité d'étage:</label>
+            <input type="number" id="capaciteEtage" name="capaciteEtage" [(ngModel)]="etage.capaciteEtage" class="form-control" required>
+            <div class="alert alert-danger" *ngIf="etageForm.controls['capaciteEtage'].touched && etageForm.controls['capaciteEtage'].invalid">
+                <div *ngIf="etageForm.controls['capaciteEtage'].errors?.['required']">Capacité d'étage requise!</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="parking">Parking:</label>
+            <select class="form-control" name="type" [(ngModel)]="etage.parking.id">
+              <option value="" disabled>Select Parking</option>
+              <option *ngFor="let parking of parkings" [value]="parking.id">{{parking.nom}}</option>
+            </select>
+          </div>
+          
+        
+        
+        
+        <!-- Ajouter d'autres champs si nécessaire -->
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary mybutton" [disabled]="etageForm.invalid">Enregistrer</button>
+        </div>
+    </form>
+</div>

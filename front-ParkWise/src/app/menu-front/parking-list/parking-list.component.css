@@ -1,0 +1,136 @@
+
+/* Styles pour le conteneur de parking */
+.parking-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Styles pour chaque élément de parking */
+.parking-item {
+  width: 100%;
+  margin-bottom: 10 px; /* Espace entre chaque élément */
+  margin-top: 30px;
+}
+
+/* Styles pour le contenu de chaque parking */
+.parking-content {
+  display: flex;
+  align-items: center; /* Alignement vertical */
+}
+
+/* Styles pour l'image du parking */
+.parking-image {
+  margin-left: 200px; /* Espace entre l'image et les détails */
+}
+
+/* Styles pour les détails du parking */
+/* Styles pour les détails du parking */
+.parking-details {
+  flex-grow: 1; /* Permet aux détails de prendre tout l'espace restant */
+  margin-left: 50px; /* Décale tout le contenu vers la droite */
+}
+
+
+
+.copy-indicator {
+  color: blue; /* Couleur du texte en bleu */
+  cursor: pointer;
+}
+
+.title {
+  text-align: center; /* Centrer le texte horizontalement */
+  position: relative; /* Définir la position relative pour appliquer la transformation */
+  margin-top: 50px
+}
+
+.title::before {
+  content: ''; /* Ajouter un pseudo-élément avant */
+  position: absolute; /* Définir la position absolue par rapport au titre */
+  top: 50%; /* Positionner au milieu verticalement */
+  left: 0; /* Aligner sur le bord gauche */
+  width: 100%; /* Prendre toute la largeur */
+  height: 2px; /* Épaisseur de la ligne */
+  background-color: #000; /* Couleur de la ligne */
+  transform: translateY(-50%); /* Déplacer vers le haut de moitié de sa propre hauteur */
+  z-index: -1; /* Envoyer en arrière-plan par rapport au texte */
+}
+
+.title span {
+  background-color: #fff; /* Couleur de fond pour le texte */
+  padding: 0 20px; /* Espacement autour du texte */
+}
+
+
+.parking-details h3 {
+  color: red; /* Couleur rouge */
+  font-weight: bold; /* Texte en gras */
+  font-size: 20px; /* Taille de la police */
+  text-transform: uppercase; /* Convertir le texte en majuscules */
+  margin-bottom: 10px; /* Marge inférieure */
+}
+@keyframes grow {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.headline-wrapper b {
+  display: block;
+  animation-name: grow;
+  animation-duration: 5s;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite; /* Répéter indéfiniment */
+  text-decoration: none; /* Supprime la ligne blanche devant les titres */
+  margin-top: 9px; /* Décalage vers le bas */
+
+}
+
+
+.headline-wrapper b:nth-child(1) {
+  animation-name: grow;
+}
+
+.headline-wrapper b:nth-child(2) {
+  animation-name: grow;
+}
+
+.headline-wrapper b:nth-child(3) {
+  animation-name: grow;
+}
+
+.headline-wrapper b:nth-child(4) {
+  animation-name: grow;
+}
+
+
+
+
+
+.animated-text {
+  font-size: 1.2em; /* Augmente la taille du texte */
+  animation: moveText 2s infinite alternate; /* Applique une animation de mouvement */
+}
+
+@keyframes moveText {
+  0% {
+    transform: translateY(0); /* Aucun mouvement au départ */
+  }
+  100% {
+    transform: translateY(-5px); /* Léger mouvement vers le haut */
+  }
+}
+
+
+.overlay-wrap {
+  margin-bottom: 10px !important;  /* Réduire la marge inférieure */
+}
+

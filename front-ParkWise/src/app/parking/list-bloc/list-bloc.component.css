@@ -1,0 +1,62 @@
+.no-bullets {
+    list-style-type: none; /* This removes the bullet points */
+    padding-left: 0;      /* This removes the default padding */
+  }
+  *{
+    color: bl;
+    }
+    
+    .myrow{
+        width: 50%;
+        margin-left: 25%;
+    }
+    .mybutton{
+    margin-right: 10%;
+    margin-top: 20px;
+    }
+    .select .option{
+        color: black;
+    }
+    .option:not(first-child) {
+        color: black;
+    }
+    /* Réduire la taille des boutons */
+.btn {
+    padding: 0.25rem 0.5rem; /* Ajustez les valeurs de padding selon vos besoins */
+    font-size: 0.85rem; /* Réduire la taille de la police */
+}
+/* Modal Header */
+.modal-header {
+    background-color: #f8d7da; /* Couleur de fond du header */
+    color: #721c24; /* Couleur du texte du header */
+  }
+  
+  /* Modal Body */
+  .modal-body {
+    padding: 20px; /* Espacement à l'intérieur du corps */
+  }
+  
+  /* Modal Footer */
+  .modal-footer {
+    justify-content: center; /* Centrer les boutons dans le footer */
+    border-top: none; /* Supprimer la bordure supérieure */
+  }
+  
+  /* Bouton Cancel */
+  .btn-secondary {
+    background-color: #6c757d; /* Couleur de fond du bouton */
+    border-color: #6c757d; /* Couleur de la bordure du bouton */
+  }
+  
+  /* Bouton Delete */
+  .btn-danger {
+    background-color: #dc3545; /* Couleur de fond du bouton */
+    border-color: #dc3545; /* Couleur de la bordure du bouton */
+  }
+  
+  /* Style de la modal */
+  .modal-content {
+    border-radius: 10px; /* Bordure arrondie */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Ombre */
+  }
+  

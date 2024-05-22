@@ -1,0 +1,35 @@
+<div class="row myrow">
+    <form #placeParkingForm="ngForm" (ngSubmit)="addOrEditePlaceParking(placeParking)">
+        <div class="form-group">
+            <label for="numeroPlace">Numéro de place:</label>
+            <input type="text" id="numeroPlace" name="numeroPlace" [(ngModel)]="placeParking.numeroPlace" class="form-control" required>
+            <div class="alert alert-danger" *ngIf="placeParkingForm.controls['numeroPlace'].touched && placeParkingForm.controls['numeroPlace'].invalid">
+                <div *ngIf="placeParkingForm.controls['numeroPlace'].errors?.['required']">Numéro de place requis!</div>
+            </div>
+        </div>
+        <div class="form-group" style="margin-top: 10px;">
+            <label for="estAccessibleHandicap">Accessible aux handicapés:</label>
+            <input type="checkbox" id="estAccessibleHandicap" name="estAccessibleHandicap" [ngModel]="placeParking.estAccessibleHandicap" (ngModelChange)="placeParking.estAccessibleHandicap = $event">
+        </div>
+        <div class="form-group" style="margin-top: 10px;">
+            <label for="estReservee">Réservée:</label>
+            <input type="checkbox" id="estReservee" name="estReservee" [ngModel]="placeParking.estReservee" (ngModelChange)="placeParking.estReservee = $event">
+        </div>
+        
+        
+        <div class="form-group" style="margin-top: 10px;">
+            <label for="typePlace">Type de place:</label>
+            <input type="text" id="typePlace" name="typePlace" [(ngModel)]="placeParking.typePlace" class="form-control">
+        </div>
+        <div class="form-group" style="margin-top: 10px;">
+            <label for="bloc_id">Bloc:</label>
+            <select class="form-control" name="bloc_id" [(ngModel)]="placeParking.bloc.id">
+                <option class="option" *ngFor="let bloc of blocs" [value]="bloc.id">{{bloc.identifiantBloc}}</option>
+            </select>
+        </div>
+        <!-- Ajouter d'autres champs si nécessaire -->
+        <div class="form-group" style="margin-top: 10px;">
+            <button type="submit" class="btn btn-primary mybutton" [disabled]="placeParkingForm.invalid">Enregistrer</button>
+        </div>
+    </form>
+</div>

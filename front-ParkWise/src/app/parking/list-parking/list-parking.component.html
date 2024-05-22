@@ -1,0 +1,64 @@
+<div class="col-12">
+    <div class=" rounded h-100 p-4">
+        <h2 class="mb-4">List Sopra Parkings</h2>
+        <button class="btn btn-primary" (click)="navigateToAddPage()">Add New Parking</button>
+
+
+        <div class="content-wrapper">
+            <div class="container-xxl flex-grow-1 container-p-y">
+
+<div class="table-responsive">
+                    <table class="table table-responsive">
+                        <thead>
+                            <tr>
+                                <th scope="col">id</th>
+                                <th scope="col">image</th>
+                                <th scope="col">nom</th>
+                                <th scope="col">adresse</th>
+                                <th scope="col">capaciteTotale</th>
+                                <th scope="col">description</th>
+                                <th scope="col">latitude</th>
+                                <th scope="col">longitude</th>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-border-bottom-0">
+                            <tr>
+                            <tr *ngFor="let parking of parkings">
+                                <td>{{ parking.id }}</td>
+                                <img [src]="getImageUrl(parking.image)" width="150px" height="150px">
+                                <td>{{ parking.nom }}</td>
+                                <td>{{ parking.adresse }}</td>
+                                <td>{{ parking.capaciteTotale }}</td>
+                                <td>{{ parking.description | slice:0:50}}<a href="#" *ngIf="parking.description.length > 50" class="read-more-link" (click)="openFullDescription($event, parking.description)"> Read More</a>
+                                </td>
+                                <td>{{ parking.latitude }}</td>
+                                <td>{{ parking.longitude }}</td>
+                                <td>
+                                    <button (click)="editeParking(parking.id)" class="btn btn-success">Editer</button>
+                                </td>
+                                <td>
+                                    <button (click)="confirmDeleteParking(parking.id)"
+                                        class="btn btn-danger">Delete</button>
+                                </td>
+                                <div class="modal fade" id="descriptionModal" tabindex="-1" role="dialog" aria-labelledby="descriptionModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="descriptionModalLabel">Full Description</h5>
+                                                <button type="button" class="btn-close" data-bs-dismoss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                {{selectedDescription}}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+            </div>

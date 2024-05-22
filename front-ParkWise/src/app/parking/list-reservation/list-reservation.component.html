@@ -1,0 +1,45 @@
+<div class="col-12">
+    <div class=" rounded h-100 p-4">
+        <h2 class="mb-4">List Of Reservations</h2>
+
+
+        <div class="content-wrapper">
+            <!-- Content -->
+
+            <div class="container-xxl flex-grow-1 container-p-y">
+
+                <!-- Basic Bootstrap Table -->
+                <div class="card">
+
+                    <table class="table custom-table">
+                        <thead>
+                            <tr>
+                            <tr>
+                                <th scope="col">id</th>
+                                <th scope="col">Date debut Reservation</th>
+                                <th scope="col">Date fin Reservation</th>
+                                <th scope="col">Etat</th>
+                                <th scope="col">Nom utilisateur </th>
+                                <th scope="col">Place parking </th>
+                               
+                            </tr>
+                        </thead>
+                        <tbody class="table-border-bottom-0">
+                                <tr *ngFor="let reservation of resevations">
+                                    <td>{{ reservation.id }}</td>
+                                    <td>{{ reservation.debutReservation[0]}}/{{reservation.debutReservation[1]}}/{{reservation.debutReservation[2] }}</td>
+                                    <td>{{ reservation.finReservation[0]}}/{{reservation.finReservation[1]}}/{{reservation.finReservation[2] }}</td>
+                                    <td>{{ reservation.estActive }}</td>
+                                    <td>
+                                        <ul class="no-bullets">
+                                            <li>{{ reservation.utilisateur.firstname }}</li>
+                                        </ul>
+                                    </td>
+                                    <td>{{ reservation.placeParking.numeroPlace }}</td>
+                                    
+                                </tr>
+                        </tbody>
+                        
+                    </table>
+                </div>
+            </div>

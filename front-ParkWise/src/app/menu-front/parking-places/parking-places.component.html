@@ -1,0 +1,53 @@
+<div class="parking-container">
+  <div class="map-container">
+    <div class="status-showcase">
+      <div class="showcase">
+        <div class="box available">
+          <small>Available</small>
+        </div>
+        <div class="box selected">
+          <small>Selected</small>
+        </div>
+        <div class="box occupied">
+          <small>Occupied</small>
+        </div>
+      </div>
+    </div>
+  
+    <div class="parking-layout">
+      <div class="row">
+        <div *ngFor="let place of firstRow" class="parking-space" [ngClass]="{'occupied': place.estReservee, 'selected': place.isSelected , 'available': !place.estReservee && !place.isSelected}" (click)="selectPlace(place)">
+          <i class="fas fa-car"></i>
+          <div class="place-number">{{ place.numeroPlace }}</div>
+        </div>
+      </div>
+      <div class="road">
+        <div class="road-line"></div>
+        <div class="road-line"></div>
+        <div class="road-line"></div>
+        <div class="road-line"></div>
+      </div>
+      <div class="row">
+        <div *ngFor="let place of secondRowLeft" class="parking-space" [ngClass]="{'occupied': place.estReservee, 'selected': place.isSelected , 'available': !place.estReservee && !place.isSelected}" (click)="selectPlace(place)">
+          <i class="fas fa-car"></i>
+          <div class="place-number">{{ place.numeroPlace }}</div>
+        </div>
+        <div class="vertical-road">
+          <div class="vertical-road-line"></div>
+          <div class="vertical-road-line"></div>
+          <div class="vertical-road-line"></div>
+        </div>
+        <div *ngFor="let place of secondRowRight" class="parking-space" [ngClass]="{'occupied': place.estReservee, 'selected': place.isSelected , 'available': !place.estReservee && !place.isSelected}" (click)="selectPlace(place)">
+          <i class="fas fa-car"></i>
+          <div class="place-number">{{ place.numeroPlace }}</div>
+        </div>
+      </div>
+      <div class="garage-door"></div>
+    </div>
+  
+    <div class="reservation-button-container">
+      <button (click)="makeReservation()" [disabled]="countSelectedPlaces() === 0">Make reservation</button>
+    </div>
+  </div>
+</div>
+<canvas id="pathCanvas" class="path-canvas"></canvas>

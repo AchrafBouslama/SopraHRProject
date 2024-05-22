@@ -1,0 +1,13 @@
+<div *ngIf="parking">
+    <h2>Les Etages et les Blocs du {{ parking.nom }}</h2>
+    <div class="etage-container">
+        <div *ngFor="let etage of etages" class="etage-card">
+            <h3>Etage {{ etage.numeroEtage }}</h3>
+            <div class="bloc-container">
+                <div *ngFor="let block of blocsByEtage[etage.id]" class="bloc-card" (click)="navigateToParkingplacess(block.id)">
+                    <p>{{ block.identifiantBloc }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

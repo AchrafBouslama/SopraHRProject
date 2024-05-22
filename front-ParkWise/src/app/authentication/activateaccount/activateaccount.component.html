@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - codingnepalweb.com -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OTP Verification Form</title>
+  <link rel="stylesheet" href="/assets/style.css" />
+  <!-- Boxicons CSS -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <script src="script.js"></script>
+  <style>
+    /* Ajout de styles CSS ici */
+  
+
+    
+
+    .btn-start {
+      width: 100px; /* Ajustez la largeur selon vos besoins */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <i class="bx bxs-check-shield"></i>
+    </header>
+    <h1>Entrer le code de vérification</h1>
+    <div>
+        <p>Nous avons envoyé un code de vérification a votre adresse e-mail</p>
+    </div>
+    <div class="verification_code">
+      <div class="d-flex digit-group">
+        <input [(ngModel)]="oneTimePassword.data1" maxlength="1" (keydown.backspace)="triggerBackSpace(oneTimePassword.data1,'digit-1')" (input)="ValueChanged(oneTimePassword.data1,'digit-1')" type="text" class="form-control" id="digit-1" name="digit-1" value="8">
+        <input [(ngModel)]="oneTimePassword.data2" maxlength="1" (keydown.backspace)="triggerBackSpace(oneTimePassword.data2,'digit-2')" (input)="ValueChanged(oneTimePassword.data2,'digit-2')" type="text" class="form-control" id="digit-2" name="digit-2" >
+        <input [(ngModel)]="oneTimePassword.data3" maxlength="1" (keydown.backspace)="triggerBackSpace(oneTimePassword.data3,'digit-3')" (input)="ValueChanged(oneTimePassword.data3,'digit-3')" type="text" class="form-control" id="digit-3" name="digit-3">
+        <input [(ngModel)]="oneTimePassword.data4" maxlength="1" (keydown.backspace)="triggerBackSpace(oneTimePassword.data4,'digit-4')" (input)="ValueChanged(oneTimePassword.data4,'digit-4')" type="text" class="form-control" id="digit-4" name="digit-4" >
+      </div>
+    </div>
+    <button class="btn btn-primary btn-start" type="button" (click)="verifyUser()">Valider</button>
+  </div>
+</body>
+</html>

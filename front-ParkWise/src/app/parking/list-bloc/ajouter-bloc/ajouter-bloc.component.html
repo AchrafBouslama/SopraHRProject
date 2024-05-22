@@ -1,0 +1,24 @@
+<div class="row myrow">
+    <form #blocForm="ngForm" (ngSubmit)="addOrEditeBloc(bloc)">
+        <div class="form-group">
+            <label for="identifiantBloc">Identifiant_Bloc:</label>
+            <input type="text" id="identifiantBloc" name="identifiantBloc" [(ngModel)]="bloc.identifiantBloc" class="form-control" required pattern="[a-zA-Z0-9]*">
+            <div class="alert alert-danger" *ngIf="blocForm.controls['identifiantBloc'].touched && blocForm.controls['identifiantBloc'].invalid">
+                <div *ngIf="blocForm.controls['identifiantBloc'].errors?.['required']">Identifiant du bloc requis!</div>
+                <div *ngIf="blocForm.controls['identifiantBloc'].errors?.['pattern']">L'identifiant du bloc ne peut contenir que des lettres et des chiffres.</div>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="type">Etage:</label>
+            <select class="form-control" name="type" [(ngModel)]="bloc.etage.id">
+                <option class="option" *ngFor="let etage of etages" [value]="etage.id">{{etage.numeroEtage}}</option>
+            </select>
+        </div>
+        
+        <!-- Ajouter d'autres champs si nécessaire -->
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary mybutton" [disabled]="blocForm.invalid">Enregistrer</button>
+        </div>
+    </form>
+</div>

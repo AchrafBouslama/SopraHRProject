@@ -1,0 +1,45 @@
+.etage-container {
+    display: flex;
+    flex-direction: column; /* Afficher les étages verticalement */
+    align-items: center; /* Centrer les étages horizontalement */
+    gap: 20px; /* Espacement entre les étages */
+    margin-top: 50px; /* Espacement depuis le haut de la page */
+}
+
+.etage-card {
+    width: 100%; /* Chaque étage occupe toute la largeur disponible */
+    max-width: 400px; /* Limiter la largeur des étages */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px; /* Ajouter une marge en bas pour séparer les étages */
+}
+
+.bloc-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.bloc-card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+    width: 200px;
+}
+
+.bloc-card:hover {
+    background-color: #f5f0ff; /* Violet très clair */
+}
+
+
+h2 {
+    text-align: center; /* Centrer le texte horizontalement */
+    margin-top: 10px; /* Espacement depuis le haut de la page */
+    font-size: 58px; /* Augmenter la taille du texte */
+
+}
+
+.etage-card:hover {
+    border-color: green; /* Changer la couleur de la bordure au survol */
+}

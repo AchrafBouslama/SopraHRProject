@@ -1,0 +1,15 @@
+/* Ajouter les styles CSS pour l'animation */
+.animated-headline .headline-wrapper b {
+    display: none;
+}
+
+.animated-headline .headline-wrapper b.is-visible {
+    display: inline;
+    animation: showBlink 0.5s linear forwards;
+}
+
+@keyframes showBlink {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 1; }
+}

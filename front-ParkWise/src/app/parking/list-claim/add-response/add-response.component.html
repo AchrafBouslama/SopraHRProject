@@ -1,0 +1,11 @@
+<div class="container">
+    <h2>Répondre à la réclamation</h2>
+    <form (submit)="addOrEditeResponse()">
+      <div class="form-group">
+        <label for="response">Réponse :</label>
+        <textarea class="form-control" id="response" name="response" rows="5" [(ngModel)]="responseClaim.response" placeholder="Saisissez votre réponse ici"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Envoyer</button>
+    </form>
+</div>
+
