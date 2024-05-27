@@ -23,6 +23,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -355,5 +356,13 @@ public class ParkService {
         return new double[]{occupancyRate, occupiedPercentage, unoccupiedPercentage};
     }
 
+    public List<PlaceParking> getAllPlaceParkinginEtage(long id){
+        Etage etage=etageRepository.findById(id).orElse(null);
+        List<PlaceParking> result=new ArrayList<>();
+        for(Bloc b:etage.getBlocs()){
+            result.addAll(getPlaceParkingByBloc(b.getId()));
+        }
+        return result;
+    }
 
 }

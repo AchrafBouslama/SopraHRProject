@@ -324,4 +324,12 @@ public class ParkingController {
     }
 
 
+
+    @GetMapping("/etage/{id}")
+    public ResponseEntity<List<PlaceParking>> getAllPlaceParkingInEtage(@PathVariable Long id) {
+        List<PlaceParking> places = parkService.getAllPlaceParkinginEtage(id);
+        return ResponseEntity.ok(places);
+    }
+
+
 }
