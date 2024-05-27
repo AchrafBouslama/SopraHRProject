@@ -46,7 +46,10 @@
     </div>
   
     <div class="reservation-button-container">
-      <button (click)="makeReservation()" [disabled]="countSelectedPlaces() === 0 || hasReservation">Make reservation</button>
+      <button (click)="makeReservation()" [disabled]="countSelectedPlaces() === 0">Make reservation</button>
+    </div>
+     <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
     </div>
   </div>
 </div>

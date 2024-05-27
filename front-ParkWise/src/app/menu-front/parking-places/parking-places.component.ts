@@ -23,6 +23,7 @@ export class ParkingPlacesComponent implements OnInit {
   reservedPlaces: number[] = [];
   currentUser: any;
   hasReservation = false;
+  errorMessage: string | null = null; // Nouvelle variable pour le message d'erreur
 
 
   constructor(
@@ -90,8 +91,9 @@ export class ParkingPlacesComponent implements OnInit {
     const selectedPlace = this.placeParkings.find(place => place.isSelected);
     if (selectedPlace && this.currentUser && this.currentUser.iduserr) {
       if (this.hasReservation) {
-        console.error("Erreur: L'utilisateur a déjà une réservation active.");
+        this.errorMessage = "Vous avez déjà une réservation active.";
         return;
+        
       }
   
       const now = new Date();
