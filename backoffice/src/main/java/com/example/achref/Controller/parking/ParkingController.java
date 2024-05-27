@@ -323,6 +323,18 @@ public class ParkingController {
         return ResponseEntity.ok("Réservation annulée avec succès !");
     }
 
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<List<Reservation>> getUserReservations(@PathVariable Integer userId) {
+        List<Reservation> reservations = parkService.getUserReservations(userId);
+        if (reservations != null && !reservations.isEmpty()) {
+            return ResponseEntity.ok(reservations);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+
+
 
 
     @GetMapping("/etage/{id}")

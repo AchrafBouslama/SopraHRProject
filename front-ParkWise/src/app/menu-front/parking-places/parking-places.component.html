@@ -46,7 +46,7 @@
     </div>
   
     <div class="reservation-button-container">
-      <button (click)="makeReservation()" [disabled]="countSelectedPlaces() === 0">Make reservation</button>
+      <button (click)="makeReservation()" [disabled]="countSelectedPlaces() === 0 || hasReservation">Make reservation</button>
     </div>
   </div>
 </div>

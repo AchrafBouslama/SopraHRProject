@@ -365,4 +365,17 @@ public class ParkService {
         return result;
     }
 
+
+
+    public List<Reservation> getUserReservations(Integer userId) {
+        User utilisateur = userRepository.findById(userId).orElse(null);
+        if (utilisateur != null) {
+            return reservationRepository.findByUtilisateur_Iduserr(userId);
+        } else {
+            // Gérer le cas où l'utilisateur n'est pas trouvé
+            return null;
+        }
+    }
+
+
 }

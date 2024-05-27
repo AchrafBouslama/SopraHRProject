@@ -68,14 +68,14 @@ const routes: Routes = [
     loadChildren:()=>import('./menu-front/menu-front.module').then((m)=>m.MenuFrontModule),
   },
 
-  {path:'page404',component:Page404Component},
+ 
   { path: 'signup', component: SignUpComponent } ,
   {path: 'verification',component:ActivateaccountComponent},
   {path: 'forget',component:ForgetpasswordComponent},
   {path: 'newPassword/:token',component:NewPasswordComponent},
-  {path: 'reset',component:ResetPasswordComponent}
+  {path: 'reset',component:ResetPasswordComponent},
   
-
+  {path:'**',component:Page404Component},
 ];
 
 @NgModule({

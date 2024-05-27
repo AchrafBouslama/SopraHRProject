@@ -22,6 +22,8 @@ export class ParkingPlacesComponent implements OnInit {
   private staticUserId = 6;
   reservedPlaces: number[] = [];
   currentUser: any;
+  hasReservation = false;
+
 
   constructor(
     private reservationService: ReservationService,
@@ -36,6 +38,7 @@ export class ParkingPlacesComponent implements OnInit {
     const userId = this.authService.getCurrentUserId();
     this.userService.getUserId(parseInt(userId ?? '0')).subscribe((data) => {
       this.currentUser = data;
+      this.checkUserReservation();
     });
     this.route.paramMap.subscribe(params => {
       const idParam = params.get('id');
@@ -45,6 +48,14 @@ export class ParkingPlacesComponent implements OnInit {
       }
     });
   }
+    checkUserReservation(): void {
+    if (this.currentUser && this.currentUser.iduserr) {
+      this.reservationService.getUserReservations(this.currentUser.iduserr).subscribe((reservations) => {
+        this.hasReservation = reservations.length > 0;
+      });
+    }
+  }
+
 
   loadPlaceParkings(): void {
     this.placeParkingService.getPlaceParkingsByIdBloc(this.id).subscribe(parkingplace => {
@@ -77,9 +88,9 @@ export class ParkingPlacesComponent implements OnInit {
 
   makeReservation(): void {
     const selectedPlace = this.placeParkings.find(place => place.isSelected);
-    if (selectedPlace) {
-      if (!this.currentUser || !this.currentUser.iduserr) {
-        console.error("Erreur: Utilisateur non défini ou ID utilisateur non défini.");
+    if (selectedPlace && this.currentUser && this.currentUser.iduserr) {
+      if (this.hasReservation) {
+        console.error("Erreur: L'utilisateur a déjà une réservation active.");
         return;
       }
   
@@ -101,13 +112,6 @@ export class ParkingPlacesComponent implements OnInit {
       ).subscribe(
         response => {
           console.log("Réservation effectuée pour la place de parking: ", selectedPlace);
-          this.reservedPlaces.push(selectedPlace.id);
-          setTimeout(() => {
-            const index = this.reservedPlaces.indexOf(selectedPlace.id);
-            if (index !== -1) {
-              this.reservedPlaces.splice(index, 1);
-            }
-          }, 5000);
           this.loadPlaceParkings();
         },
         error => {
@@ -116,7 +120,7 @@ export class ParkingPlacesComponent implements OnInit {
       );
     }
   }
-  
+    
   drawPath(selectedPlace: PlaceParking): void {
     const canvas = <HTMLCanvasElement>document.getElementById('pathCanvas');
     const context = canvas.getContext('2d');

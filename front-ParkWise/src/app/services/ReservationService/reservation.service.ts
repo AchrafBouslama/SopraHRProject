@@ -23,5 +23,10 @@ export class ReservationService {
     const url = `${this.BASE_URL}addReservation/${userId}/${placeParkingId}`;
     return this.http.post<any>(url, reservation);
   }  
+
+  getUserReservations(userId: number): Observable<any> {
+    return this.http.get(`${this.BASE_URL}user/${userId}`);
+  }
+
 }
 
