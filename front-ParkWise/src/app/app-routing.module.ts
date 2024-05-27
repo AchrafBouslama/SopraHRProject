@@ -33,8 +33,9 @@ import { NewPasswordComponent } from './authentication/new-password/new-password
 import { ResetPasswordComponent } from './authentication/reset-password/reset-password.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/signup', pathMatch: 'full' },
 
-  {path : '', component:MenuComponent, children : [
+  {path : 'admin', component:MenuComponent, children : [
     { path :'listUsers',component: UserComponent,canActivate:[AuthGuard]},
     {path:'ajouterUser',component:AjouterUserComponent,canActivate:[AuthGuard]},
     {path:'modifierUser/:id',component:ModifierUtilisateurComponent},
@@ -52,8 +53,6 @@ const routes: Routes = [
 { path: 'modifierPlaceParking/:id', component: ModifierPlaceparkingComponent },
 { path: 'ListResevations', component: ListReservationComponent },
 
-{path:'page404',component:Page404Component},
-
 {path:'claim',component:ListClaimComponent},
 {path:'add-response/:id',component:AddResponseComponent},
 
@@ -68,6 +67,8 @@ const routes: Routes = [
     path:'front',
     loadChildren:()=>import('./menu-front/menu-front.module').then((m)=>m.MenuFrontModule),
   },
+
+  {path:'page404',component:Page404Component},
   { path: 'signup', component: SignUpComponent } ,
   {path: 'verification',component:ActivateaccountComponent},
   {path: 'forget',component:ForgetpasswordComponent},

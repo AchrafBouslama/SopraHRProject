@@ -35,7 +35,7 @@ export class ListClaimComponent implements OnInit {
 
 
   redirectToResponseForm(claimId: number) {
-    this.router.navigate(['/add-response', claimId]);
+    this.router.navigate(['/admin/add-response', claimId]);
   }
 
 

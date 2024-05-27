@@ -35,7 +35,7 @@ export class AddResponseComponent implements OnInit {
   }
 
   navigateToClaimList(){
-    this.router.navigate(['/claim']);
+    this.router.navigate(['/admin/claim']);
   }
   
 }

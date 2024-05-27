@@ -72,7 +72,7 @@ export class ModifierBlocComponent {
   
 }
 private navigateToBlocList(){
-  this.router.navigate(['/ListBloc'])
+  this.router.navigate(['/admin/ListBloc'])
 }
 
 }

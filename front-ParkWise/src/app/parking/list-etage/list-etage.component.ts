@@ -67,7 +67,7 @@ export class ListEtageComponent {
     
   }
   public editeEtage(id:number){
-    this.router.navigate(['/modifierEtage/'+id]);
+    this.router.navigate(['/admin/modifierEtage/'+id]);
 
   }
 

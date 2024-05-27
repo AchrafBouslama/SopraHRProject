@@ -41,7 +41,7 @@ export class AjouterEtageComponent {
     });
 }
   private navigateToParkingList(){
-      this.router.navigate(['/ListEtage'])
+      this.router.navigate(['/admin/ListEtage'])
   }
 
 }

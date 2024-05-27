@@ -86,7 +86,7 @@ getImageUrl(filename: string): string {
   return `http://localhost:8080/api/file/get-image/${filename}`;
 }
 navigateToAddPage(){
-  this.router.navigate(['/ajouterParking'])
+  this.router.navigate(['/admin/ajouterParking'])
 }
 
 

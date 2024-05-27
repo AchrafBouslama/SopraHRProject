@@ -49,7 +49,7 @@ export class ListBlocComponent {
   }
 
   navigateToAddPage(){
-    this.router.navigate(['/ajouterBloc'])
+    this.router.navigate(['/admin/ajouterBloc'])
   }
   public deleteBloc(id: number): void {
     console.log(id,"dddddddddddddddddddddddddddd");
@@ -69,7 +69,7 @@ export class ListBlocComponent {
     
   }
   public editeBloc(id:number){
-    this.router.navigate(['/modifierBloc/'+id]);
+    this.router.navigate(['/admin/modifierBloc/'+id]);
 
   }
 

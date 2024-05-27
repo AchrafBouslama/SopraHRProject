@@ -90,7 +90,7 @@ export class ModifierParkingComponent implements OnInit {
     };
     this.parkService.addParking(updatedParking).subscribe(
       response => {
-        this.router.navigate(['/listParking']);
+        this.router.navigate(['/admin/listParking']);
       },
       error => {
         console.error('Error updating parking:', error);

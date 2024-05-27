@@ -51,7 +51,7 @@ export class ListPlaceparkingComponent {
   }
 
   navigateToAddPage(){
-    this.router.navigate(['/ajouterPlaceParking'])
+    this.router.navigate(['/admin/ajouterPlaceParking'])
   }
   public deletePlaceParking(id: number): void {
     console.log(id,"dddddddddddddddddddddddddddd");
@@ -74,7 +74,7 @@ export class ListPlaceparkingComponent {
     
   }
   public editePlaceParking(id:number){
-    this.router.navigate(['/modifierPlaceParking/'+id]);
+    this.router.navigate(['/admin/modifierPlaceParking/'+id]);
 
   }
 

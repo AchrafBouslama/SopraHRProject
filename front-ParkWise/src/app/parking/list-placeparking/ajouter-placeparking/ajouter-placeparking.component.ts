@@ -41,7 +41,7 @@ export class AjouterPlaceparkingComponent {
     });
 }
   private navigateToBlocList(){
-      this.router.navigate(['/ListPlaceParking'])
+      this.router.navigate(['/admin/ListPlaceParking'])
   }
 
 

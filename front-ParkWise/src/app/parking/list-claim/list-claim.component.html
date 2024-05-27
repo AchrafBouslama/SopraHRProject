@@ -28,8 +28,9 @@
                                 <td>{{ claim.createdAt[0] }}/{{claim.createdAt[1]}}/{{claim.createdAt[2] }}</td>                                <td>
                                 <td>{{ claim.status }}</td>
                                <td>
-  <button class="btn btn-primary" (click)="redirectToResponseForm(claim.id)">Répondre</button>
-</td>
+                                <button class="btn btn-primary" (click)="redirectToResponseForm(claim.id)"
+                                [disabled]="claim.status === 'RESOLUE'">Répondre</button>
+                        </td>
                             </tr>
                         </tbody>
                     </table>

@@ -73,7 +73,7 @@ export class AjouterParkingComponent implements OnInit {
     };
     this.parkingService.addParking(newParking).subscribe(
       response => {
-        this.router.navigate(['/listParking']);
+        this.router.navigate(['/admin/listParking']);
       },
       error => {
         console.error('Error adding Parking:', error);

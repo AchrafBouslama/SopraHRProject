@@ -41,7 +41,7 @@ export class AjouterBlocComponent {
     });
 }
   private navigateToBlocList(){
-      this.router.navigate(['/ListBloc'])
+      this.router.navigate(['/admin/ListBloc'])
   }
 
 
