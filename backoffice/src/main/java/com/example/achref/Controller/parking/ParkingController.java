@@ -343,5 +343,15 @@ public class ParkingController {
         return ResponseEntity.ok(places);
     }
 
+    @DeleteMapping("/canseluserreservation/{userId}")
+    public ResponseEntity<Void> cancelUserReservation(@PathVariable Integer userId) {
+        boolean isCancelled = parkService.cancelUserReservation(userId);
+        if (isCancelled) {
+            return ResponseEntity.ok().build();
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+    }
+
 
 }

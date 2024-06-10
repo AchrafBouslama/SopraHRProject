@@ -13,6 +13,7 @@ export class PlaceParking {
     isSelected: boolean=false;
     x!: number;  
     y!: number; 
+    isDisabled?:boolean;
 
 
 }

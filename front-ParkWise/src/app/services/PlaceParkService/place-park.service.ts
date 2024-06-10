@@ -46,6 +46,9 @@ export class PlaceParkService {
     return this.http.get(`${this.BASE_URL}displayPlaceParkings/${idBloc}`);
 
   }
+  getPlaceParkingsByEtageId(etageId: number): Observable<PlaceParking[]> {
+    return this.http.get<PlaceParking[]>(`${this.BASE_URL}etage/${etageId}`);
+  }
 
 
   
