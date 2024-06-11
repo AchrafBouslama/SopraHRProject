@@ -41,3 +41,7 @@ front-achref/e2e/*.map
 # System Files
 front-achref/.DS_Store
 front-achref/Thumbs.db
+
+
+# Ignore Angular cache files in front-ParkWise
+front-ParkWise/.angular/cache/

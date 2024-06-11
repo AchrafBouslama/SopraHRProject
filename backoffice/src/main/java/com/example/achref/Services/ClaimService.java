@@ -23,11 +23,18 @@ import java.util.Optional;
 import java.time.Instant;
 
 @Service
-@RequiredArgsConstructor
 public class ClaimService {
     private final UserRepository userRepository;
     private final ClaimRepository claimRepository;
     private final ClaimResponseRepository claimResponseRepository;
+
+    public ClaimService(UserRepository userRepository, ClaimRepository claimRepository,
+                        ClaimResponseRepository claimResponseRepository) {
+        this.userRepository = userRepository;
+        this.claimRepository = claimRepository;
+        this.claimResponseRepository = claimResponseRepository;
+    }
+
 
 
     @Transactional

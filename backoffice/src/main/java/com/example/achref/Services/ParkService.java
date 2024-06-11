@@ -377,5 +377,27 @@ public class ParkService {
         }
     }
 
+    public boolean cancelUserReservation(Integer userId) {
+        User utilisateur = userRepository.findById(userId).orElse(null);
+        if (utilisateur != null) {
+            List<Reservation> reservations = reservationRepository.findByUtilisateur_Iduserr(userId);
+            if (!reservations.isEmpty()) {
+                for (Reservation reservation : reservations) {
+                    PlaceParking placeParking = reservation.getPlaceParking();
+                    if (placeParking != null) {
+                        placeParking.setEstReservee(false);
+                        placeParkingRepository.save(placeParking);
+                    }
+                }
+                reservationRepository.deleteAll(reservations);
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+
+
 
 }

@@ -1047,7 +1047,8 @@ public class EmailService {
             helper.addAttachment("qr_code.png", qrCodeResource);
 
             // Chargement du logo à partir du chemin local
-            FileSystemResource logoFile = new FileSystemResource("C:\\Users\\PC\\Desktop\\pfe\\front-achref\\src\\assets\\img\\images\\logo\\logo-light.png");
+            FileSystemResource logoFile = new FileSystemResource("C:\\Users\\PC\\Desktop\\pfe-Work\\SopraHRProject\\front-ParkWise\\src\\assets\\img\\images\\logo\\logo-light.png");
+
             helper.addInline("logo", logoFile); // Ajouter le logo en tant qu'image en ligne
 
             javaMailSender.send(mimeMessage);

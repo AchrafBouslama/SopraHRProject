@@ -29,7 +29,7 @@ public class UserProfileController {
         return userProfileService.displayUser();
     }
     @DeleteMapping("/deleteQuiz/{idUser}")
-    public void deleteQuiz(@PathVariable Integer idUser){
+    public void deleteUser(@PathVariable Integer idUser){
         userProfileService.deleteUser(idUser);
     }
 

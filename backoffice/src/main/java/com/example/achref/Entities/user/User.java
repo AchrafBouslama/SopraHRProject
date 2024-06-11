@@ -31,6 +31,13 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer iduserr ;
+    public Integer getIduserr() {
+        return iduserr;
+    }
+
+    public void setIduserr(Integer iduserr) {
+        this.iduserr = iduserr;
+    }
     private String firstname ;
     private String lastname ;
     private boolean isEnabled;

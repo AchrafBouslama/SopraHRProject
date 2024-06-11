@@ -13,6 +13,7 @@ import java.util.Optional;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
@@ -25,6 +26,21 @@ public class HistoriqueReservationService {
     private HistoriqueReservationRepository historiqueReservationRepository;
     private final ParkingRepository parkingRepository;
     private final BlocRepository blocRepository;
+@Autowired
+    public HistoriqueReservationService(UserProfileService userProfileService, PlaceParkingRepository placeParkingRepository,
+            HistoriqueReservationRepository historiqueReservationRepository, ParkingRepository
+            parkingRepository, BlocRepository blocRepository, EtageRepository etageRepository,
+            ReservationRepository reservationRepository, UserRepository userRepository) {
+        this.userProfileService = userProfileService;
+        this.placeParkingRepository = placeParkingRepository;
+        this.historiqueReservationRepository = historiqueReservationRepository;
+        this.parkingRepository = parkingRepository;
+        this.blocRepository = blocRepository;
+        this.etageRepository = etageRepository;
+        this.reservationRepository = reservationRepository;
+        this.userRepository = userRepository;
+    }
+
     private final EtageRepository etageRepository;
     private final ReservationRepository reservationRepository;
     private final UserRepository userRepository;

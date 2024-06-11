@@ -28,6 +28,16 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <scope>provided</scope>
@@ -89,6 +99,9 @@
             <artifactId>core</artifactId>
             <version>3.4.1</version> <!-- Mettez à jour la version si nécessaire -->
         </dependency>
+
+
+
 
 
     </dependencies>

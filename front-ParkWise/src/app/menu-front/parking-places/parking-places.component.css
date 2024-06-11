@@ -1,6 +1,6 @@
 .parking-container {
   margin: 20px auto;
-  max-width: 800px;
+  max-width: 1200px; /* Increase max-width to accommodate more cars */
   position: relative;
 }
 
@@ -25,23 +25,24 @@
 .row {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap; /* Allow wrapping if there are too many cars */
   margin-bottom: 20px;
 }
 
 .parking-space {
-  width: 100px;
-  height: 150px;
+  width: 20px; /* Reduce width to fit more cars */
+  height: 20px; /* Reduce height to fit more cars */
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  margin: 5px;
-  font-size: 120px; 
+  margin: 6px;
+  font-size: 15px; /* Reduce font size */
   position: relative;
 }
 
 .parking-space i {
-  font-size: 100px; /* Adjust the size of the car icon */
+  font-size: 40px; /* Adjust the size of the car icon */
 }
 
 .parking-space .place-number {
@@ -49,7 +50,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 20px;
+  font-size: 9px; /* Adjust the size of the parking space number */
   color: rgb(255, 255, 255); /* Adjust the color of the parking space number */
 }
 
@@ -115,4 +116,34 @@
   left: 0;
   pointer-events: none;
   z-index: 1;
+}
+
+.moving-car {
+  position: absolute;
+  font-size: 80px;
+  color: green;
+  transform: translate(-50%, -50%);
+  display: none;
+  transition: transform 0.2s linear;
+}
+
+.car-up {
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.car-right {
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.car-down {
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.car-left {
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+
+.parking-space.disabled {
+  cursor: not-allowed;
 }

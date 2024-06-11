@@ -38,9 +38,7 @@ export class ListReservationComponent {
     });
     this.reloadData();
   }
-
-  
-  reloadData() {
+   reloadData() {
     this.reservationService.displayReservations().subscribe(data => {
       if (data) {
         console.log(data);

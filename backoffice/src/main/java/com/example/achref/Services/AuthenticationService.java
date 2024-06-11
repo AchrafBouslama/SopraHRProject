@@ -35,12 +35,28 @@ public class AuthenticationService {
     private final JwtService jwtService;
     private final EmailService emailService;
     private final AuthenticationManager authenticationManager;
-
-
-
     @Autowired
     private PasswordResetTokenRepository passwordResetTokenRepository;
     private final UserDetailsService userDetailsService;
+    @Autowired
+    public AuthenticationService(UserRepository userRepository, PasswordEncoder passwordEncoder,
+                                 JwtService jwtService, EmailService emailService, AuthenticationManager
+                                 authenticationManager, PasswordResetTokenRepository
+                                 passwordResetTokenRepository, UserDetailsService userDetailsService) {
+        this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
+        this.jwtService = jwtService;
+        this.emailService = emailService;
+        this.authenticationManager = authenticationManager;
+        this.passwordResetTokenRepository = passwordResetTokenRepository;
+        this.userDetailsService = userDetailsService;
+    }
+
+
+
+
+
+
 
 
 
@@ -74,37 +90,42 @@ public class AuthenticationService {
     private int generateVerificationCode(){
         return 1000+RANDOM.nextInt(9000);//1000 9999
     }
-  public AuthenticationResponse register(RegisterRequest request) {
-      String generatedPassword = generateRandomPassword();
-      int verificationCode=generateVerificationCode();
-      User user = User.builder()
-              .firstname(request.getFirstname())
-              .lastname(request.getLastname())
-              .email(request.getEmail())
-              .password(passwordEncoder.encode(generatedPassword)) // Encodez le mot de passe généré
-              .role(Role.USER)
-              .image("defaultusericon.jpg")
-              .isEnabled(false)
-              .verificationCode(String.valueOf(verificationCode))
-              .build();
-      userRepository.save(user);
+    public AuthenticationResponse register(RegisterRequest request) {
+        String generatedPassword = generateRandomPassword();
+        int verificationCode = generateVerificationCode();
+        User user = User.builder()
+                .firstname(request.getFirstname())
+                .lastname(request.getLastname())
+                .email(request.getEmail())
+                .password(passwordEncoder.encode(generatedPassword)) // Encode the generated password
+                .role(Role.USER)
+                .image("defaultusericon.jpg")
+                .isEnabled(false)
+                .verificationCode(String.valueOf(verificationCode))
+                .build();
 
+        user = userRepository.save(user); // Save and retrieve the user with the assigned ID
 
-       emailService.sendVerificationCodeMail(request.getEmail(),verificationCode);
-      // Envoyez le mot de passe généré par e-mail
-      emailService.sendPasswordByEmail(request.getEmail(), generatedPassword);
+        // Check if the ID is assigned correctly
+        if (user.getIduserr() == null) {
+            throw new IllegalStateException("The saved user does not have an assigned ID.");
+        }
 
+        emailService.sendVerificationCodeMail(request.getEmail(), verificationCode);
+        emailService.sendPasswordByEmail(request.getEmail(), generatedPassword);
 
-      var jwtToken = jwtService.generateToken(user);
-      System.out.println(jwtToken);
-      return AuthenticationResponse.builder()
-              .token(jwtToken)
-              .id(user.getIduserr())
-              .role(user.getRole())
-              .firstname(user.getFirstname())
-              .lastname(user.getLastname())
-              .build();
-  }
+        var jwtToken = jwtService.generateToken(user);
+        System.out.println(jwtToken);
+
+        return AuthenticationResponse.builder()
+                .token(jwtToken)
+                .id(user.getIduserr()) // Ensure the ID is non-null here
+                .role(user.getRole())
+                .firstname(user.getFirstname())
+                .lastname(user.getLastname())
+                .build();
+    }
+
 
     public boolean changePassword(int userId, String oldPassword, String newPassword, String confirmPassword) {
         User user = userRepository.findById(userId).orElseThrow(() -> new RuntimeException("User not found"));

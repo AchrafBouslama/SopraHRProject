@@ -10,9 +10,9 @@ import { ParkService } from 'src/app/services/parkService/park.service';
   styleUrls: ['./list-etage.component.css']
 })
 export class ListEtageComponent {
-  activeMenuItem: string = ''; // Variable pour suivre l'élément actif du menu
+  activeMenuItem: string = ''; 
+  
 
-  // Méthode pour définir l'élément actif du menu
   setActiveMenuItem(menuItem: string) {
     this.activeMenuItem = menuItem;
   }
