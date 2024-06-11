@@ -26,9 +26,6 @@ export class ReservationService {
   getUserReservations(userId: number): Observable<any> {
     return this.http.get(`${this.BASE_URL}user/${userId}`);
   }
-
-
-
   cancelUserReservation(userId: number): Observable<any> {
     return this.http.delete(`${this.BASE_URL}canseluserreservation/${userId}`);
   }
