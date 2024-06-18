@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    environment {
+        JAVA_HOME = '/opt/jdk-21' // Chemin vers JDK 21
+    }
+
     stages {
 
         stage('Récupération du code de la branche') {
@@ -12,7 +16,15 @@ pipeline {
         stage('Build') {
             steps {
                 dir('backoffice') {
-                    sh 'mvn clean package'
+                    script {
+                        // Configuration du JDK pour ce répertoire
+                        def jdkTool = tool name: 'jdk-21', type: 'jdk'
+                        sh "${jdkTool}/bin/java -version" // Vérifie la version de Java utilisée
+
+                        // Exécute le build Maven avec Java 21
+                        sh "${jdkTool}/bin/java -version"
+                        sh "${jdkTool}/bin/mvn clean package"
+                    }
                 }
             }
         }
@@ -20,7 +32,15 @@ pipeline {
         stage('Test') {
             steps {
                 dir('backoffice') {
-                    sh 'mvn test'
+                    script {
+                        // Configuration du JDK pour ce répertoire
+                        def jdkTool = tool name: 'jdk-21', type: 'jdk'
+                        sh "${jdkTool}/bin/java -version" // Vérifie la version de Java utilisée
+
+                        // Exécute les tests Maven avec Java 21
+                        sh "${jdkTool}/bin/java -version"
+                        sh "${jdkTool}/bin/mvn test"
+                    }
                 }
             }
         }
