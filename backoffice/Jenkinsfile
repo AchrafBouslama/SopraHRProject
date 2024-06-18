@@ -2,14 +2,14 @@ pipeline {
     agent any
 
     stages {
-
         stage('Récupération du code de la branche') {
             steps {
-                git branch: 'master' , 
-                url : 'https://github.com/AchrafBouslama/SopraHRProject.git';
+                dir('backoffice') {
+                    git branch: 'master', 
+                    url: 'https://github.com/AchrafBouslama/SopraHRProject.git'
+                }
             }
         } 
-
         stage('Build') {
             steps {
                 // Exemple de commande pour le build
