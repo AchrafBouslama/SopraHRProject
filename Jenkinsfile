@@ -4,14 +4,18 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'mvn clean package'
+                dir('backoffice') {
+                    sh 'mvn clean package'
+                }
             }
         }
         stage('Test') {
             steps {
-                sh 'mvn test'
+                dir('backoffice') {
+                    sh 'mvn test'
+                }
             }
         }
-      
+        // Ajoutez d'autres étapes ici si nécessaire
     }
 }
