@@ -1,0 +1,32 @@
+pipeline {
+    agent any
+
+    stages {
+
+        stage('Récupération du code de la branche') {
+            steps {
+                dir('backoffice') {
+                    git branch: 'master', 
+                    url: 'https://github.com/AchrafBouslama/SopraHRProject.git'
+                }
+            }
+        } 
+
+
+        stage('Build') {
+            steps {
+                // Exemple de commande pour le build
+                sh 'mvn clean package'
+            }
+        }
+        stage('Test') {
+            steps {
+                // Exemple de commande pour les tests
+                sh 'mvn test'
+            }
+        }
+    }
+
+    // Spécifie le chemin vers le Jenkinsfile dans backoffice
+  
+}
