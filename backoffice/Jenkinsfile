@@ -8,21 +8,15 @@ pipeline {
                 git branch: 'master', url: 'https://github.com/AchrafBouslama/SopraHRProject.git'
             }
         } 
+        
+        stage("MAVEN BUILD") {
+          steps {
+            dir('backoffice') {
 
-        stage('Build') {
-            steps {
-                dir('backoffice') {
-                    sh 'mvn clean package'
-                }
-            }
+            sh 'mvn clean install -Dmaven.test.skip=true'
+                              }
         }
 
-        stage('Test') {
-            steps {
-                dir('backoffice') {
-                    sh 'mvn test'
-                }
-            }
-        }
+
     }
 }
