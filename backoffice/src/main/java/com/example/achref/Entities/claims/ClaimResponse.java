@@ -1,11 +1,9 @@
 package com.example.achref.Entities.claims;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
+import java.io.Serializable;
 import java.time.Instant;
 import java.time.LocalDateTime;
 
@@ -14,7 +12,9 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class ClaimResponse {
+@Getter
+@Setter
+public class ClaimResponse implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

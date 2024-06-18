@@ -2,11 +2,10 @@ package com.example.achref.Entities.parking;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import com.example.achref.Entities.reservation.Reservation;
+
+import java.io.Serializable;
 import java.util.List;
 
 @Data
@@ -14,7 +13,9 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Etage {
+@Getter
+@Setter
+public class Etage implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

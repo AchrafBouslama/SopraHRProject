@@ -2,11 +2,9 @@ package com.example.achref.Entities.user;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Date;
 
@@ -15,7 +13,9 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class PasswordResetToken {
+@Getter
+@Setter
+public class PasswordResetToken implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
