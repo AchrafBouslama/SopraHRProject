@@ -25,9 +25,5 @@ pipeline {
     }
 
     // Spécifie le chemin vers le Jenkinsfile dans backoffice
-    options {
-        scm {
-            scriptPath('backoffice/Jenkinsfile')
-        }
-    }
+  
 }
