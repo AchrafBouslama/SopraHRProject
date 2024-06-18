@@ -5,9 +5,10 @@ pipeline {
 
         stage('Récupération du code de la branche') {
             steps {
-              
+               dir('backoffice') {
                     git branch: 'master', 
                     url: 'https://github.com/AchrafBouslama/SopraHRProject.git'
+               }
                 
             }
         } 
@@ -15,14 +16,18 @@ pipeline {
 
         stage('Build') {
             steps {
+                 dir('backoffice') {
                 // Exemple de commande pour le build
                 sh 'mvn clean package'
+                 }
             }
         }
         stage('Test') {
             steps {
+                 dir('backoffice') {
                 // Exemple de commande pour les tests
                 sh 'mvn test'
+                 }
             }
         }
     }
