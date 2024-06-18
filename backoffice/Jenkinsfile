@@ -5,7 +5,7 @@ pipeline {
 
         stage('Récupération du code de la branche') {
             steps {
-                dir('/backoffice') {
+                dir('backoffice') {
                     git branch: 'master', 
                     url: 'https://github.com/AchrafBouslama/SopraHRProject.git'
                 }
