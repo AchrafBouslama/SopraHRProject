@@ -19,5 +19,22 @@ pipeline {
 
 
     }
+
+
+ stage('SonarQube') {
+            steps {
+                 dir('backoffice') {
+                // Provide SonarQube authentication using the provided token
+                withCredentials([string(credentialsId: 'ParkWiseHR', variable: 'SONAR_TOKEN')]) {
+                    sh "mvn sonar:sonar -Dsonar.login=$SONAR_TOKEN"
+                }
+                 }
+            }
+        }
+
+
+
+
+        
 }
 }
