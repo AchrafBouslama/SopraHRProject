@@ -21,6 +21,16 @@ pipeline {
     }
 
 
+
+
+     stage("MOCKITO") {
+              steps {
+              dir('backoffice') {
+                sh "mvn test -Dtest=com.example.achref.UserProfileServiceTest"
+              }}
+            }
+
+
  stage('SonarQube') {
             steps {
                  dir('backoffice') {

@@ -12,7 +12,7 @@ services:
       - test
     volumes:
       - db:/var/lib/mysql
-  Backend:
+  SopraHRWork:
     depends_on:
       - mysqldb
     image: achrafbouslama/newimage:latest
