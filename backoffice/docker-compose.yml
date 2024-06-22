@@ -33,7 +33,6 @@ services:
       tty: true
 networks:
   test:
-    driver: bridge
 
 volumes:
-  db:
+  db: {}
