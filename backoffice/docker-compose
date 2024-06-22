@@ -5,7 +5,7 @@ services:
     restart: unless-stopped
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
-      MYSQL_DATABASE: soprahrdatabase
+      MYSQL_DATABASE: SopraHRDataBase
     ports:
       - "3306:3306"
     networks:
