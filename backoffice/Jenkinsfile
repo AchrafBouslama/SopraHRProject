@@ -44,7 +44,36 @@ pipeline {
 
 
 
+        stage("BUILD DOCKER IMAGE") {
+                    steps {
+                          dir('backoffice') {
 
-        
+                      sh 'docker build -t achrafbouslama/newimage:latest .'
+                    }}
+                  }
+              stage('docker push'){
+                               steps{
+                                     dir('backoffice') {
+                                   script{
+                                       sh 'docker login -u "achrafbouslama" -p "e181JMT2239#" docker.io'
+                                       sh 'docker push achrafbouslama/newimage:latest'
+
+                                   }
+                               }
+                           }}
+
+                      stage('docker compose') {
+                          steps{
+                                dir('backoffice') {
+                              sh 'docker compose up -d'
+                          }}
+                      }
+
+
+
+
+
+
+
 }
 }
