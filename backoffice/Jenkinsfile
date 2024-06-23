@@ -45,7 +45,7 @@ pipeline {
 
         stage('Publish Artifacts to Nexus') {
                     steps {
-                                     dir('backoffice') {
+                       dir('backoffice') {
 
                         script {
                             nexusArtifactUploader artifacts: [[
