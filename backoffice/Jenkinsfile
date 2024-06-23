@@ -62,7 +62,7 @@ pipeline {
                       sh 'docker build -t achrafbouslama/newimage:latest .'
                     }}
                   }
-              stage('docker push'){
+              stage('docker push backend'){
                                steps{
                                      dir('backoffice') {
                                    script{
@@ -72,6 +72,23 @@ pipeline {
                                    }
                                }
                            }}
+                           stage('Build Angular Docker Image') {
+                                       steps {
+                                           dir('front-ParkWise') {
+                                               sh 'docker build -t achrafbouslama/angular-app:latest .'
+                                           }
+                                       }
+                                   }
+                                   stage('docker push Frontend'){
+                                                                  steps{
+                                                                        dir('front-ParkWise') {
+                                                                      script{
+                                                                          sh 'docker login -u "achrafbouslama" -p "e181JMT2239#" docker.io'
+                                                                          sh 'docker push achrafbouslama/angular-app:latest'
+
+                                                                      }
+                                                                  }
+                                                              }}
 
                       stage('docker compose') {
                           steps{
