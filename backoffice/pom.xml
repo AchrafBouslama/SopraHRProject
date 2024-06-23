@@ -116,7 +116,7 @@
         <repository>
             <id>deploymentRepo</id>
             <name>Nexus Repository</name>
-            <url>http://192.168.4.13:8081/repository/maven-releases/</url>
+            <url>http://192.168.4.13:8081/repository/ParkWiseHR/</url>
         </repository>
     </distributionManagement>
 

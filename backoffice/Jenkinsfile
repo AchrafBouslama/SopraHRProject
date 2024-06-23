@@ -55,7 +55,7 @@ pipeline {
                                 type: 'jar']],
                                 credentialsId: 'nexusCredentials',
                                 groupId: 'com.example',
-                                nexusUrl: '192.168.33.10:8081',
+                                nexusUrl: '192.168.4.13:8081',
                                 nexusVersion: 'nexus3',
                                 protocol: 'http',
                                 repository: 'ParkWiseHR/',
