@@ -44,26 +44,14 @@ pipeline {
 
 
       stage('Publish Artifacts to Nexus') {
-                    steps {
-                       dir('backoffice') {
-
-                        script {
-                            nexusArtifactUploader artifacts: [[
-                                artifactId: 'SopraHRWork',
-                                classifier: '',
-                                file: 'target/SopraHRWork-0.0.1-SNAPSHOT.jar',
-                                type: 'jar']],
-                                credentialsId: 'nexusCredentials',
-                                groupId: 'com.example',
-                                nexusUrl: '192.168.4.13:8081',
-                                nexusVersion: 'nexus3',
-                                protocol: 'http',
-                                repository: 'ParkWiseHR/',
-                                version: '1.0'
-                        }
-                    }
-                }
-                }
+                  steps {
+                      dir('backoffice') {
+                          script {
+                              sh 'mvn deploy -DaltDeploymentRepository=deploymentRepo::default::http://192.168.4.13:8081/repository/ParkWiseHR/'
+                          }
+                      }
+                  }
+      }
 
 
 
