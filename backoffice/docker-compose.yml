@@ -33,7 +33,7 @@ services:
       tty: true
   angular-app:
     build:
-      context: ./front-ParkWise
+      context: ../front-ParkWise
     ports:
       - "4200:80"
     networks:
